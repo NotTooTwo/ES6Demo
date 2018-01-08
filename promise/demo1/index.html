@@ -41,6 +41,7 @@
 		    p1.then(
 		        // Log the fulfillment value
 		        function(val) {
+		        	console.log('Promise fulfilled')
 		            log.insertAdjacentHTML('beforeend', val +
 		                ') Promise fulfilled (<small>Async code terminated</small>)<br/>');
 		        })

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<pre>
+		Promise 的状态
+		一个 Promise 的当前状态必须为以下三种状态中的一种：等待态（Pending）、完成态（Fulfilled）和完成态（Rejected）。
+		等待态（Pending）
+		处于等待态时，promise 需满足以下条件：
+
+		可以迁移至完成态或拒绝态
+		 
+		完成态（Fulfilled）
+		处于完成态时，promise 需满足以下条件：
+		不能迁移至其他任何状态
+		必须拥有一个不可变的终值
+		拒绝态（Rejected）
+		处于拒绝态时，promise 需满足以下条件：
+
+		不能迁移至其他任何状态
+		必须拥有一个不可变的据因
+
+		promise.then(onFulfilled, onRejected)
+注：如果我们只想传onRejected而不想传onFulfilled，可以这么写：pormise.then(null, onRejected)
+onFulfilled 和 onRejected 必须被作为函数调用（即没有 this 值）注2
+注：也就是说，我们在promise中就别用this了。
+then 方法可以被同一个 promise 调用多次
+
+当 promise 成功执行时，所有 onFulfilled 需按照其注册顺序依次回调
+当 promise 被拒绝执行时，所有的 onRejected 需按照其注册顺序依次回调
+注：这里解释了我们可以链式调用，promise.then().then().then()
+	</pre>
+</body>
+</html>
