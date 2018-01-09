@@ -39,7 +39,17 @@ f.next(); // {value: 3, done: false}
 f.next(); // {value: undefined, done: true}
 
 // next()方法会执行generator的代码，每次遇到yield x就返回一个对象{value: x, done: true/false}，然后“暂停”。返回的value就是yield的返回值，done表示这个generator是否已经执行结束了。如果done为true，则value就是return的返回值。
-
+// next 方法返回值的 value 属性，是 Generator 函数向外输出数据；next 方法还可以接受参数，这是向 Generator 函数体内输入数据。
+// 参数可以传入 Generator函数，作为上个阶段异步任务的返回结果，被函数体内的变量接收
+// Generator 函数体外，使用指针对象的 throw 方法抛出的错误，可以被函数体内的 try ... catch 代码块捕获
+// function* gen(x){
+//   try {
+//     var y = yield x + 2;
+//   } catch (e){ 
+//     console.log(e);
+//   }
+//   return y;
+// }
 
 // 二.直接用for..of循环迭代generator对象，这种方式不需要我们自己判断done：
 for (var x of fib(5)) {
